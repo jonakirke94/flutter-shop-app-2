@@ -3,6 +3,7 @@ import 'package:mealapp/providers/provide_cart.dart';
 import 'package:mealapp/providers/provide_order.dart';
 import 'package:mealapp/screens/cart_screen.dart';
 import 'package:mealapp/screens/order_screen.dart';
+import 'package:mealapp/screens/user_products_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'screens/products_overview_screen.dart';
@@ -27,16 +28,18 @@ class MealApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Meal App',
         theme: ThemeData(
-          primarySwatch: Colors.purple,
-          accentColor: Colors.deepOrange,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          fontFamily: 'Lato',
-        ),
+            primarySwatch: Colors.purple,
+            accentColor: Colors.deepOrange,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+            fontFamily: 'Lato',
+            primaryColor: Colors.blue,
+            errorColor: Colors.red),
         home: ProductsOverviewScreen(),
         routes: {
           ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
           CartScreen.routeName: (ctx) => CartScreen(),
           OrderScreen.routeName: (ctx) => OrderScreen(),
+          UserProductsScreen.routeName: (ctx) => UserProductsScreen(),
         },
       ),
     );

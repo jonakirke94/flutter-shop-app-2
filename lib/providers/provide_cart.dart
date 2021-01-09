@@ -43,6 +43,24 @@ class ProvideCart with ChangeNotifier {
     notifyListeners();
   }
 
+  void removeSingleItem(String productId) {
+    if (!_items.containsKey(productId)) {
+      return;
+    }
+
+    if (_items[productId].quantity > 1) {
+      _items.update(
+          productId,
+          (cartItem) => CartItem(
+              id: cartItem.id,
+              title: cartItem.title,
+              quantity: cartItem.quantity - 1,
+              price: cartItem.price));
+    } else {
+      _items.remove(productId);
+    }
+  }
+
   void addItem(String productId, double price, String title) {
     // if it already exists just increase quantity
     if (_items.containsKey(productId)) {
